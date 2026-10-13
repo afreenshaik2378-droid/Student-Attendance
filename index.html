@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Attendance Management System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="eyebrow">STUDENT PROJECT</p>
+      <h1>Student Attendance Management System</h1>
+      <p>Record daily attendance and keep track of each student's attendance percentage.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="stats" aria-label="Attendance summary">
+      <article class="stat-card"><span>Total Students</span><strong id="totalStudents">0</strong></article>
+      <article class="stat-card"><span>Present Today</span><strong id="presentToday">0</strong></article>
+      <article class="stat-card"><span>Absent Today</span><strong id="absentToday">0</strong></article>
+      <article class="stat-card"><span>Attendance Rate</span><strong id="attendanceRate">0%</strong></article>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div><h2>Add a student</h2><p>Add students to your class list.</p></div>
+      </div>
+      <form id="studentForm" class="student-form">
+        <label>Student name<input id="studentName" type="text" placeholder="e.g. Ananya Reddy" required maxlength="70"></label>
+        <label>Roll number<input id="rollNumber" type="text" placeholder="e.g. 101" required maxlength="20"></label>
+        <button type="submit">Add Student</button>
+      </form>
+      <p id="formMessage" class="message" role="status"></p>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading attendance-heading">
+        <div><h2>Daily attendance</h2><p>Select a date, then mark each student present or absent.</p></div>
+        <label class="date-label">Attendance date<input id="attendanceDate" type="date"></label>
+      </div>
+      <div class="toolbar">
+        <input id="searchInput" type="search" placeholder="Search name or roll number" aria-label="Search students">
+        <button id="markAllPresent" class="secondary" type="button">Mark all present</button>
+        <button id="saveAttendance" type="button">Save Attendance</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Roll No.</th><th>Student Name</th><th>Today's Status</th><th>Attendance %</th><th>Action</th></tr></thead>
+          <tbody id="studentTable"></tbody>
+        </table>
+      </div>
+      <p id="attendanceMessage" class="message" role="status"></p>
+      <div class="footer-actions"><button id="exportCsv" class="secondary" type="button">Export CSV</button><button id="clearData" class="danger" type="button">Clear All Data</button></div>
+    </section>
+    <p class="note">Demo project: data is saved in this browser using local storage. Export a CSV backup regularly.</p>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
